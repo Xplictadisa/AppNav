@@ -7,7 +7,7 @@ export function NavContainer({children}) {
     display: 'flex',
     justifyContent: 'space-between',
     maxWidth: '400px',
-    margin: '0 auto' 
+    margin: '0 auto' ,
  }
 
   return(
@@ -30,7 +30,7 @@ export function NavItems({icon, title}) {
 
   return(
     <div style={styles} onClick={handleClick}>
-      <ion-icon class="icon ellipsis" name={icon}></ion-icon>
+      <ion-icon  name={icon}></ion-icon>
       <small style={iconStyles}
         >{title}
       </small>

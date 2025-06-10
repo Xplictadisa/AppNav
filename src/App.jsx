@@ -1,9 +1,14 @@
 import { createContext, useContext, useReducer, useState } from 'react';
 import { NavContainer } from './Component/whatsapp/NavContainer';
 import { NavItems } from './Component/whatsapp/NavContainer';
+import { StatusPage } from './Component/whatsapp/StatusPage';
+import { CallsPage } from './Component/whatsapp/CallsPage';
+import { Communities } from './Component/whatsapp/CommunitiesPage';
+import { ChatPage } from './Component/whatsapp/ChatPage';
+import  Settings  from './Component/whatsapp/SettingsPage';
 
 const NavItemsDispatchContext = createContext(null)
-
+ 
 function App() {
 
 const navItemsStatus = [
@@ -17,7 +22,13 @@ const navItemsStatus = [
 const [navItems, dispatch] = useReducer(reducer, navItemsStatus)
 
   return (
-   <div>
+   <div style={{marginTop: '50px'}}>
+    {navItems[0].clicked && <StatusPage />}
+    {navItems[1].clicked && <CallsPage />}
+    {navItems[2].clicked && <Communities />}
+    {navItems[3].clicked && <ChatPage />}
+    {navItems[4].clicked && <Settings />}
+
     <NavContainer >
       <NavItemsDispatchContext value={dispatch}>
         <NavItems 
